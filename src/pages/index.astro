@@ -1,16 +1,522 @@
----
-
----
-
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+	<meta name="description" content="Raguba SAC - Servicios de Alimentación Colectiva de calidad y confianza" />
+	<title>Raguba SAC - Servicios de Alimentación Colectiva</title>
+	<script src="https://unpkg.com/lucide@latest"></script>
+	<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--primary-color: #0a2540;
+				--secondary-color: #1e4976;
+				--accent-color: #2563eb;
+				--text-dark: #1f2937;
+				--text-light: #6b7280;
+				--bg-light: #f9fafb;
+				--white: #ffffff;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				line-height: 1.6;
+				color: var(--text-dark);
+			}
+
+			/* Header */
+			header {
+				background-color: var(--primary-color);
+				color: var(--white);
+				padding: 1rem 0;
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			nav {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.logo {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				font-size: 1.8rem;
+				font-weight: 700;
+				letter-spacing: -0.5px;
+			}
+
+			.logo-img {
+				height: 50px;
+				width: auto;
+			}
+
+			.nav-links {
+				display: flex;
+				gap: 2rem;
+				list-style: none;
+			}
+
+		.nav-links a {
+			color: var(--white);
+			text-decoration: none;
+			font-weight: 500;
+			transition: opacity 0.3s;
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+		}
+
+		.nav-links a:hover {
+			opacity: 0.8;
+		}
+
+		.nav-links a i {
+			width: 18px;
+			height: 18px;
+		}
+
+		/* Hero Section */
+		.hero {
+			background: linear-gradient(rgba(10, 37, 64, 0.3), rgba(30, 73, 118, 0.3)), url('/hero-food-service.jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			color: var(--white);
+			padding: 6rem 2rem;
+			text-align: center;
+		}
+
+			.hero-content {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.hero h1 {
+				font-size: 3rem;
+				margin-bottom: 1.5rem;
+				font-weight: 700;
+				line-height: 1.2;
+			}
+
+			.hero p {
+				font-size: 1.25rem;
+				margin-bottom: 2rem;
+				opacity: 0.95;
+			}
+
+		.cta-button {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			background-color: var(--white);
+			color: var(--primary-color);
+			padding: 1rem 2.5rem;
+			border-radius: 8px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: transform 0.3s, box-shadow 0.3s;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+		}
+
+		.cta-button:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+		}
+
+		.cta-button i {
+			width: 20px;
+			height: 20px;
+		}
+
+			/* Sections */
+			section {
+				padding: 5rem 2rem;
+			}
+
+		.section-title {
+			text-align: center;
+			font-size: 2.5rem;
+			margin-bottom: 1rem;
+			color: var(--primary-color);
+			font-weight: 700;
+		}
+
+		.section-subtitle {
+			text-align: center;
+			font-size: 1.1rem;
+			color: var(--text-light);
+			margin-bottom: 3rem;
+			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+			/* Services */
+			.services-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+			}
+
+		.service-card {
+			background: var(--white);
+			border-radius: 12px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+			transition: transform 0.3s, box-shadow 0.3s;
+			overflow: hidden;
+		}
+
+		.service-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+		}
+
+		.service-image {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+		}
+
+		.service-content {
+			padding: 2rem;
+		}
+
+		.service-card h3 {
+			color: var(--primary-color);
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.service-card h3 i {
+			width: 24px;
+			height: 24px;
+			color: var(--accent-color);
+		}
+
+		.service-card p {
+			color: var(--text-light);
+			line-height: 1.7;
+		}
+
+			/* About */
+			.about-section {
+				background-color: var(--bg-light);
+			}
+
+			.about-content {
+				max-width: 800px;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			.about-content p {
+				font-size: 1.1rem;
+				color: var(--text-light);
+				line-height: 1.8;
+				margin-bottom: 1.5rem;
+			}
+
+		/* Values */
+		.values-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 2rem;
+			margin-top: 3rem;
+		}
+
+		.value-item {
+			text-align: center;
+			padding: 2rem;
+		}
+
+		.value-icon {
+			width: 48px;
+			height: 48px;
+			margin: 0 auto 1rem;
+			color: var(--accent-color);
+		}
+
+		.value-item h3 {
+			color: var(--primary-color);
+			font-size: 1.3rem;
+			margin-bottom: 0.5rem;
+			font-weight: 600;
+		}
+
+		.value-item p {
+			color: var(--text-light);
+		}
+
+			/* Footer */
+			footer {
+				background-color: var(--primary-color);
+				color: var(--white);
+				padding: 3rem 2rem 1.5rem;
+			}
+
+			.footer-content {
+				max-width: 1200px;
+				margin: 0 auto;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 3rem;
+				margin-bottom: 2rem;
+			}
+
+			.footer-section h3 {
+				margin-bottom: 1rem;
+				font-weight: 600;
+				font-size: 1.2rem;
+			}
+
+		.footer-section p,
+		.footer-section a {
+			color: rgba(255, 255, 255, 0.9);
+			line-height: 1.8;
+			text-decoration: none;
+		}
+
+		.footer-section a:hover {
+			text-decoration: underline;
+		}
+
+		.contact-item {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.contact-item i {
+			width: 18px;
+			height: 18px;
+			flex-shrink: 0;
+		}
+
+			.footer-bottom {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding-top: 2rem;
+				border-top: 1px solid rgba(255, 255, 255, 0.2);
+				text-align: center;
+				color: rgba(255, 255, 255, 0.8);
+			}
+
+		.sst-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			background-color: rgba(255, 255, 255, 0.1);
+			padding: 0.5rem 1.5rem;
+			border-radius: 6px;
+			margin-top: 1rem;
+			transition: background-color 0.3s;
+		}
+
+		.sst-link:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+			text-decoration: none;
+		}
+
+		.sst-link i {
+			width: 20px;
+			height: 20px;
+		}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.nav-links {
+					gap: 1rem;
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+
+				.hero h1 {
+					font-size: 2rem;
+				}
+
+				.hero p {
+					font-size: 1rem;
+				}
+
+				.section-title {
+					font-size: 2rem;
+				}
+
+				nav {
+					flex-direction: column;
+					gap: 1rem;
+				}
+
+				.footer-content {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
-	</body>
+		<!-- Header -->
+		<header>
+			<nav>
+				<div class="logo">
+					<img src="/logo-blanco.png" alt="Raguba SAC" class="logo-img" />
+				</div>
+		<ul class="nav-links">
+			<li><a href="#inicio"><i data-lucide="home"></i> Inicio</a></li>
+			<li><a href="#servicios"><i data-lucide="utensils"></i> Servicios</a></li>
+			<li><a href="#nosotros"><i data-lucide="info"></i> Nosotros</a></li>
+		</ul>
+			</nav>
+		</header>
+
+		<!-- Hero Section -->
+		<section class="hero" id="inicio">
+			<div class="hero-content">
+			<h1>Servicios de Alimentación Colectiva</h1>
+			<p>Ofrecemos soluciones de alimentación diseñadas a la medida de tu empresa, sin importar la ubicación o la complejidad operativa con el fin de brindar a tus colaboradores comidas de calidad que reconozcan y recompensen su esfuerzo diario.</p>
+			<a href="#servicios" class="cta-button">
+				Conoce nuestros servicios
+				<i data-lucide="arrow-right"></i>
+			</a>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section id="servicios">
+			<div class="container">
+				<h2 class="section-title">Nuestros Servicios</h2>
+				<p class="section-subtitle">Ofrecemos soluciones personalizadas en alimentación colectiva para satisfacer las necesidades de cada cliente.</p>
+			<div class="services-grid">
+			<div class="service-card">
+				<img src="/service-catering.jpg" alt="Catering Empresarial" class="service-image" />
+				<div class="service-content">
+					<h3><i data-lucide="briefcase"></i> Balance nutricional</h3>
+					<p>Diseñamos menús equilibrados que aseguran una alimentación de calidad, adaptada a las necesidades energéticas de cada grupo, promoviendo la salud y el bienestar de los comensales.</p>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="/service-industrial.jpg" alt="Comedores Industriales" class="service-image" />
+				<div class="service-content">
+					<h3><i data-lucide="factory"></i> Comedores Industriales</h3>
+					<p>Gestión completa de comedores para industrias y grandes organizaciones.</p>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="/service-events.jpg" alt="Eventos Corporativos" class="service-image" />
+				<div class="service-content">
+					<h3><i data-lucide="party-popper"></i> Variedad Gastronómica</h3>
+					<p>Ofrecemos menús con diversidad de sabores y preparaciones, complementados con festivales gastronómicos que celebran nuestra riqueza culinaria.</p>
+				</div>
+			</div>
+			</div>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section class="about-section" id="nosotros">
+			<div class="container">
+				<h2 class="section-title">Sobre Raguba SAC</h2>
+				<div class="about-content">
+					<p>
+						Somos una empresa especializada en servicios de alimentación colectiva, comprometida con la excelencia en cada uno de nuestros servicios. Contamos con un equipo de profesionales altamente capacitados que garantizan la calidad, higiene y seguridad alimentaria en todas nuestras operaciones.
+					</p>
+				</div>
+
+			<div class="values-grid">
+				<div class="value-item">
+					<i data-lucide="badge-check" class="value-icon"></i>
+					<h3>Calidad</h3>
+					<p>Alimentos frescos y de primera calidad</p>
+				</div>
+				<div class="value-item">
+					<i data-lucide="shield-check" class="value-icon"></i>
+					<h3>Seguridad</h3>
+					<p>Cumplimiento estricto de normas de seguridad y salud en el trabajo</p>
+				</div>
+				<div class="value-item">
+					<i data-lucide="lightbulb" class="value-icon"></i>
+					<h3>Innovación</h3>
+					<p>Menús creativos y adaptados</p>
+				</div>
+				<div class="value-item">
+					<i data-lucide="handshake" class="value-icon"></i>
+					<h3>Compromiso</h3>
+					<p>Servicio personalizado y profesional</p>
+				</div>
+			</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="footer-content">
+				<div class="footer-section">
+					<h3>Raguba SAC</h3>
+					<p>Servicios de Alimentación Colectiva</p>
+					<p>Calidad, seguridad y compromiso en cada servicio.</p>
+				</div>
+			<div class="footer-section">
+				<h3>Contacto</h3>
+				<div class="contact-item">
+					<i data-lucide="mail"></i>
+					<span>rguadalupe@raguba.com.pe</span>
+				</div>
+				<!-- <div class="contact-item">
+					<i data-lucide="phone"></i>
+					<span>(01) 234 5678</span>
+				</div> -->
+				<div class="contact-item">
+					<i data-lucide="map-pin"></i>
+					<span>Perú</span>
+				</div>
+			</div>
+	<div class="footer-section">
+		<h3>Políticas</h3>
+		<a href="/Politica-SST.pdf" target="_blank" class="sst-link">
+			<i data-lucide="award"></i> Política de Seguridad y Salud en el Trabajo
+		</a>
+		<a href="/Politica-PHS.pdf" target="_blank" class="sst-link">
+			<i data-lucide="sparkles"></i> Política de Prevención y Sanción del Hostigamiento Sexual
+		</a>
+	</div>
+			</div>
+			<div class="footer-bottom">
+		<p>&copy; 2025 Raguba SAC. Todos los derechos reservados.</p>
+		</div>
+	</footer>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// @ts-ignore
+			if (window.lucide) {
+				// @ts-ignore
+				window.lucide.createIcons();
+			}
+		});
+	</script>
+</body>
 </html>

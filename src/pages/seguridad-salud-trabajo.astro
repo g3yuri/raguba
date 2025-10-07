@@ -1,0 +1,376 @@
+---
+
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/logo.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Política de Seguridad y Salud en el Trabajo - Raguba SAC" />
+		<title>Política SST - Raguba SAC</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--primary-color: #0a2540;
+				--secondary-color: #1e4976;
+				--accent-color: #2563eb;
+				--text-dark: #1f2937;
+				--text-light: #6b7280;
+				--bg-light: #f9fafb;
+				--white: #ffffff;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				line-height: 1.6;
+				color: var(--text-dark);
+				background-color: var(--bg-light);
+			}
+
+			/* Header */
+			header {
+				background-color: var(--primary-color);
+				color: var(--white);
+				padding: 1rem 0;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			nav {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.logo {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				font-size: 1.8rem;
+				font-weight: 700;
+				letter-spacing: -0.5px;
+			}
+
+			.logo-img {
+				height: 50px;
+				width: auto;
+			}
+
+			.back-link {
+				color: var(--white);
+				text-decoration: none;
+				font-weight: 500;
+				padding: 0.5rem 1.5rem;
+				border: 2px solid rgba(255, 255, 255, 0.3);
+				border-radius: 6px;
+				transition: all 0.3s;
+			}
+
+			.back-link:hover {
+				background-color: rgba(255, 255, 255, 0.1);
+				border-color: var(--white);
+			}
+
+			/* Main Content */
+			main {
+				max-width: 900px;
+				margin: 3rem auto;
+				padding: 0 2rem;
+			}
+
+			.document-container {
+				background: var(--white);
+				padding: 3rem;
+				border-radius: 12px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+			}
+
+			.document-header {
+				text-align: center;
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 3px solid var(--primary-color);
+			}
+
+			.document-header h1 {
+				color: var(--primary-color);
+				font-size: 2.5rem;
+				margin-bottom: 0.5rem;
+				font-weight: 700;
+			}
+
+			.document-header .company-name {
+				font-size: 1.5rem;
+				color: var(--text-light);
+				font-weight: 600;
+			}
+
+			.document-content h2 {
+				color: var(--primary-color);
+				font-size: 1.8rem;
+				margin: 2.5rem 0 1rem;
+				font-weight: 600;
+			}
+
+			.document-content h3 {
+				color: var(--secondary-color);
+				font-size: 1.3rem;
+				margin: 1.5rem 0 0.8rem;
+				font-weight: 600;
+			}
+
+			.document-content p {
+				color: var(--text-dark);
+				margin-bottom: 1.2rem;
+				line-height: 1.8;
+				text-align: justify;
+			}
+
+			.document-content ul {
+				margin: 1rem 0 1.5rem 2rem;
+				color: var(--text-dark);
+			}
+
+			.document-content li {
+				margin-bottom: 0.8rem;
+				line-height: 1.7;
+			}
+
+			.highlight-box {
+				background-color: #eff6ff;
+				border-left: 4px solid var(--accent-color);
+				padding: 1.5rem;
+				margin: 2rem 0;
+				border-radius: 6px;
+			}
+
+			.highlight-box p {
+				margin-bottom: 0;
+			}
+
+			.commitments-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5rem;
+				margin: 2rem 0;
+			}
+
+			.commitment-card {
+				background: var(--bg-light);
+				padding: 1.5rem;
+				border-radius: 8px;
+				border-left: 4px solid var(--accent-color);
+			}
+
+			.commitment-card h4 {
+				color: var(--primary-color);
+				margin-bottom: 0.5rem;
+				font-weight: 600;
+			}
+
+			.commitment-card p {
+				color: var(--text-light);
+				font-size: 0.95rem;
+				margin: 0;
+				text-align: left;
+			}
+
+			/* Footer */
+			footer {
+				background-color: var(--primary-color);
+				color: var(--white);
+				padding: 2rem;
+				margin-top: 4rem;
+			}
+
+			.footer-content {
+				max-width: 1200px;
+				margin: 0 auto;
+				text-align: center;
+				color: rgba(255, 255, 255, 0.9);
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.document-container {
+					padding: 2rem 1.5rem;
+				}
+
+				.document-header h1 {
+					font-size: 2rem;
+				}
+
+				.document-header .company-name {
+					font-size: 1.2rem;
+				}
+
+				.document-content h2 {
+					font-size: 1.5rem;
+				}
+
+				nav {
+					flex-direction: column;
+					gap: 1rem;
+				}
+
+				.commitments-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<header>
+			<nav>
+				<div class="logo">
+					<img src="/logo.png" alt="Raguba SAC Logo" class="logo-img" />
+					<span>RAGUBA SAC</span>
+				</div>
+				<a href="/" class="back-link">← Volver al inicio</a>
+			</nav>
+		</header>
+
+		<!-- Main Content -->
+		<main>
+			<div class="document-container">
+				<div class="document-header">
+					<h1>Política de Seguridad y Salud en el Trabajo</h1>
+					<p class="company-name">RAGUBA SAC</p>
+				</div>
+
+				<div class="document-content">
+					<div class="highlight-box">
+						<p><strong>En Raguba SAC</strong>, nos comprometemos a garantizar un ambiente de trabajo seguro y saludable para todos nuestros colaboradores, clientes y partes interesadas, en cumplimiento con la legislación vigente y las mejores prácticas en seguridad y salud ocupacional.</p>
+					</div>
+
+					<h2>1. Objetivos de la Política</h2>
+					<p>
+						Nuestra política de Seguridad y Salud en el Trabajo tiene como objetivo principal proteger la integridad física y mental de nuestros trabajadores, previniendo accidentes laborales y enfermedades ocupacionales en todas nuestras operaciones de servicio de alimentación colectiva.
+					</p>
+
+					<h2>2. Compromisos de la Empresa</h2>
+					<div class="commitments-grid">
+						<div class="commitment-card">
+							<h4>🛡️ Prevención</h4>
+							<p>Identificar y evaluar los riesgos para implementar medidas preventivas efectivas.</p>
+						</div>
+						<div class="commitment-card">
+							<h4>📚 Capacitación</h4>
+							<p>Proporcionar formación continua en seguridad y salud ocupacional a todos los trabajadores.</p>
+						</div>
+						<div class="commitment-card">
+							<h4>⚖️ Cumplimiento Legal</h4>
+							<p>Cumplir con toda la normativa vigente en materia de seguridad y salud laboral.</p>
+						</div>
+						<div class="commitment-card">
+							<h4>🔄 Mejora Continua</h4>
+							<p>Revisar y mejorar constantemente nuestros procesos y procedimientos de seguridad.</p>
+						</div>
+					</div>
+
+					<h2>3. Alcance</h2>
+					<p>
+						Esta política es aplicable a todos los trabajadores de Raguba SAC, incluyendo personal permanente, temporal, contratistas y subcontratistas que presten servicios en nuestras instalaciones o en las instalaciones de nuestros clientes.
+					</p>
+
+					<h2>4. Responsabilidades</h2>
+					
+					<h3>4.1 De la Dirección</h3>
+					<ul>
+						<li>Liderar y promover la cultura de seguridad en toda la organización.</li>
+						<li>Asignar los recursos necesarios para la implementación del Sistema de Gestión de SST.</li>
+						<li>Garantizar el cumplimiento de la legislación aplicable.</li>
+						<li>Revisar periódicamente el desempeño del sistema de gestión.</li>
+					</ul>
+
+					<h3>4.2 De los Supervisores</h3>
+					<ul>
+						<li>Velar por el cumplimiento de las normas de seguridad en sus áreas de trabajo.</li>
+						<li>Reportar y gestionar los incidentes y condiciones inseguras.</li>
+						<li>Capacitar y sensibilizar al personal bajo su supervisión.</li>
+						<li>Participar en las inspecciones y auditorías de seguridad.</li>
+					</ul>
+
+					<h3>4.3 De los Trabajadores</h3>
+					<ul>
+						<li>Cumplir con las normas, reglamentos y procedimientos de seguridad establecidos.</li>
+						<li>Usar adecuadamente los equipos de protección personal (EPP) asignados.</li>
+						<li>Reportar inmediatamente cualquier condición o acto inseguro.</li>
+						<li>Participar activamente en las capacitaciones y simulacros de seguridad.</li>
+						<li>Cuidar su salud y la de sus compañeros de trabajo.</li>
+					</ul>
+
+					<h2>5. Medidas de Seguridad Específicas</h2>
+					
+					<h3>5.1 Seguridad Alimentaria</h3>
+					<ul>
+						<li>Cumplimiento estricto de las normas de higiene y manipulación de alimentos.</li>
+						<li>Uso obligatorio de equipos de protección en áreas de producción.</li>
+						<li>Mantenimiento preventivo de equipos y maquinaria de cocina.</li>
+						<li>Control de temperatura y almacenamiento adecuado de alimentos.</li>
+					</ul>
+
+					<h3>5.2 Prevención de Riesgos Laborales</h3>
+					<ul>
+						<li>Identificación y evaluación continua de peligros y riesgos.</li>
+						<li>Implementación de controles de ingeniería, administrativos y EPP.</li>
+						<li>Señalización adecuada de áreas de riesgo.</li>
+						<li>Programa de ergonomía para prevenir lesiones musculoesqueléticas.</li>
+					</ul>
+
+					<h3>5.3 Respuesta ante Emergencias</h3>
+					<ul>
+						<li>Plan de emergencia y evacuación actualizado y difundido.</li>
+						<li>Brigadas de emergencia capacitadas y equipadas.</li>
+						<li>Realización periódica de simulacros de evacuación.</li>
+						<li>Sistemas de extinción y equipos de primeros auxilios disponibles.</li>
+					</ul>
+
+					<h2>6. Vigilancia de la Salud</h2>
+					<p>
+						Raguba SAC implementa un programa de vigilancia de la salud que incluye exámenes médicos ocupacionales periódicos, evaluaciones específicas según los riesgos identificados y seguimiento de casos de enfermedades ocupacionales.
+					</p>
+
+					<h2>7. Participación y Consulta</h2>
+					<p>
+						Fomentamos la participación activa de los trabajadores en el Sistema de Gestión de Seguridad y Salud en el Trabajo a través del Comité de SST, reuniones periódicas, buzón de sugerencias y canales de comunicación abiertos.
+					</p>
+
+					<h2>8. Mejora Continua</h2>
+					<p>
+						Nos comprometemos a revisar y mejorar continuamente nuestro Sistema de Gestión de SST mediante auditorías internas, análisis de indicadores, investigación de incidentes y accidentes, y la implementación de acciones correctivas y preventivas.
+					</p>
+
+					<div class="highlight-box">
+						<p><strong>Compromiso:</strong> La Dirección de Raguba SAC garantiza los recursos necesarios para el cumplimiento de esta política y se compromete a su difusión, implementación y mejora continua, haciendo de la seguridad y salud de nuestros trabajadores una prioridad estratégica de la organización.</p>
+					</div>
+
+					<p style="margin-top: 3rem; text-align: center; color: var(--text-light);">
+						<strong>Última actualización:</strong> Octubre 2025<br>
+						Raguba SAC - Servicios de Alimentación Colectiva
+					</p>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<footer>
+			<div class="footer-content">
+				<p>&copy; 2025 Raguba SAC. Todos los derechos reservados.</p>
+				<p>Comprometidos con la seguridad y salud de nuestros colaboradores</p>
+			</div>
+		</footer>
+	</body>
+</html>
+
