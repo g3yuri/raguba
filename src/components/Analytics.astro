@@ -1,0 +1,25 @@
+---
+// Google Analytics component
+// Replace GA_MEASUREMENT_ID with your actual Google Analytics ID
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with your actual ID
+---
+
+<!-- Google Analytics -->
+<script type="module">
+  // Only load analytics in production
+  if (import.meta.env.PROD) {
+    // Google Analytics 4
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  }
+</script>

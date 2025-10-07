@@ -3,11 +3,79 @@
 	<head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-	<meta name="description" content="Raguba SAC - Servicios de Alimentación Colectiva de calidad y confianza" />
-	<title>Raguba SAC - Servicios de Alimentación Colectiva</title>
-	<script src="https://unpkg.com/lucide@latest"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="generator" content={Astro.generator} />
+	
+	<!-- SEO Meta Tags -->
+	<title>Raguba SAC - Servicios de Alimentación Colectiva | Catering Empresarial Perú</title>
+	<meta name="description" content="Servicios de alimentación colectiva de calidad en Perú. Catering empresarial, comedores industriales y eventos corporativos. Calidad, seguridad y compromiso." />
+	<meta name="keywords" content="alimentación colectiva, catering empresarial, comedores industriales, servicios de alimentación, Perú, eventos corporativos, menús empresariales" />
+	<link rel="canonical" href="https://raguba.com.pe/" />
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://raguba.com.pe/" />
+	<meta property="og:title" content="Raguba SAC - Servicios de Alimentación Colectiva" />
+	<meta property="og:description" content="Servicios de alimentación colectiva de calidad en Perú. Catering empresarial, comedores industriales y eventos corporativos." />
+	<meta property="og:image" content="https://raguba.com.pe/hero-food-service.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:site_name" content="Raguba SAC" />
+	<meta property="og:locale" content="es_PE" />
+	
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://raguba.com.pe/" />
+	<meta property="twitter:title" content="Raguba SAC - Servicios de Alimentación Colectiva" />
+	<meta property="twitter:description" content="Servicios de alimentación colectiva de calidad en Perú. Catering empresarial, comedores industriales y eventos corporativos." />
+	<meta property="twitter:image" content="https://raguba.com.pe/hero-food-service.jpg" />
+	
+	<!-- Schema.org JSON-LD -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Raguba SAC",
+		"description": "Servicios de alimentación colectiva de calidad en Perú",
+		"url": "https://raguba.com.pe/",
+		"logo": "https://raguba.com.pe/logo-blanco.png",
+		"email": "rguadalupe@raguba.com.pe",
+		"address": {
+			"@type": "PostalAddress",
+			"addressCountry": "PE"
+		},
+		"sameAs": [],
+		"contactPoint": {
+			"@type": "ContactPoint",
+			"email": "rguadalupe@raguba.com.pe",
+			"contactType": "customer service"
+		},
+		"service": [
+			{
+				"@type": "Service",
+				"name": "Catering Empresarial",
+				"description": "Servicios de alimentación para empresas con menús equilibrados y balance nutricional"
+			},
+			{
+				"@type": "Service", 
+				"name": "Comedores Industriales",
+				"description": "Gestión completa de comedores para industrias y grandes organizaciones"
+			},
+			{
+				"@type": "Service",
+				"name": "Eventos Corporativos", 
+				"description": "Servicios de catering para eventos corporativos con variedad gastronómica"
+			}
+		]
+	}
+	</script>
+	
+	<!-- Preload critical resources -->
+	<link rel="preload" href="/hero-food-service.jpg" as="image" type="image/jpeg" />
+	<link rel="preload" href="/logo-blanco.png" as="image" type="image/png" />
+	
+	<!-- Defer non-critical JavaScript -->
+	<script src="https://unpkg.com/lucide@0.545.0/dist/umd/lucide.min.js" defer></script>
 	<style>
 			* {
 				margin: 0;
@@ -347,6 +415,62 @@
 			height: 20px;
 		}
 
+			/* Accessibility */
+			.skip-link {
+				position: absolute;
+				top: -40px;
+				left: 6px;
+				background: var(--primary-color);
+				color: var(--white);
+				padding: 8px;
+				text-decoration: none;
+				z-index: 1000;
+				border-radius: 4px;
+			}
+			
+			.skip-link:focus {
+				top: 6px;
+			}
+			
+			/* Breadcrumbs */
+			.breadcrumb {
+				background-color: var(--bg-light);
+				padding: 1rem 2rem;
+				border-bottom: 1px solid #e5e7eb;
+			}
+			
+			.breadcrumb ol {
+				list-style: none;
+				display: flex;
+				gap: 0.5rem;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			
+			.breadcrumb li {
+				display: flex;
+				align-items: center;
+			}
+			
+			.breadcrumb li:not(:last-child)::after {
+				content: "›";
+				margin-left: 0.5rem;
+				color: var(--text-light);
+			}
+			
+			.breadcrumb a {
+				color: var(--accent-color);
+				text-decoration: none;
+			}
+			
+			.breadcrumb a:hover {
+				text-decoration: underline;
+			}
+			
+			.breadcrumb li[aria-current="page"] {
+				color: var(--text-light);
+			}
+
 			/* Responsive */
 			@media (max-width: 768px) {
 				.nav-links {
@@ -380,26 +504,39 @@
 		</style>
 	</head>
 	<body>
+		<!-- Skip to main content for accessibility -->
+		<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+		
 		<!-- Header -->
 		<header>
 			<nav>
-				<div class="logo">
-					<img src="/logo-blanco.png" alt="Raguba SAC" class="logo-img" />
-				</div>
+		<div class="logo">
+			<img src="/logo-blanco.png" alt="Raguba SAC - Servicios de Alimentación Colectiva" class="logo-img" width="50" height="50" />
+		</div>
 		<ul class="nav-links">
-			<li><a href="#inicio"><i data-lucide="home"></i> Inicio</a></li>
-			<li><a href="#servicios"><i data-lucide="utensils"></i> Servicios</a></li>
-			<li><a href="#nosotros"><i data-lucide="info"></i> Nosotros</a></li>
+			<li><a href="#inicio" title="Ir a la sección de inicio"><i data-lucide="home"></i> Inicio</a></li>
+			<li><a href="#servicios" title="Ver nuestros servicios"><i data-lucide="utensils"></i> Servicios</a></li>
+			<li><a href="#nosotros" title="Conoce más sobre nosotros"><i data-lucide="info"></i> Nosotros</a></li>
 		</ul>
 			</nav>
 		</header>
 
+		<!-- Breadcrumbs -->
+		<nav aria-label="Breadcrumb" class="breadcrumb">
+			<ol>
+				<li><a href="/" title="Inicio">Inicio</a></li>
+				<li aria-current="page">Servicios de Alimentación Colectiva</li>
+			</ol>
+		</nav>
+
+		<!-- Main Content -->
+		<main id="main-content">
 		<!-- Hero Section -->
 		<section class="hero" id="inicio">
 			<div class="hero-content">
 			<h1>Servicios de Alimentación Colectiva</h1>
 			<p>Ofrecemos soluciones de alimentación diseñadas a la medida de tu empresa, sin importar la ubicación o la complejidad operativa con el fin de brindar a tus colaboradores comidas de calidad que reconozcan y recompensen su esfuerzo diario.</p>
-			<a href="#servicios" class="cta-button">
+			<a href="#servicios" class="cta-button" title="Descubre nuestros servicios de alimentación">
 				Conoce nuestros servicios
 				<i data-lucide="arrow-right"></i>
 			</a>
@@ -412,27 +549,27 @@
 				<h2 class="section-title">Nuestros Servicios</h2>
 				<p class="section-subtitle">Ofrecemos soluciones personalizadas en alimentación colectiva para satisfacer las necesidades de cada cliente.</p>
 			<div class="services-grid">
-			<div class="service-card">
-				<img src="/service-catering.jpg" alt="Catering Empresarial" class="service-image" />
-				<div class="service-content">
-					<h3><i data-lucide="briefcase"></i> Balance nutricional</h3>
-					<p>Diseñamos menús equilibrados que aseguran una alimentación de calidad, adaptada a las necesidades energéticas de cada grupo, promoviendo la salud y el bienestar de los comensales.</p>
-				</div>
+		<div class="service-card">
+			<img src="/service-catering.jpg" alt="Servicio de Catering Empresarial - Menús equilibrados y balance nutricional" class="service-image" loading="lazy" width="400" height="200" />
+			<div class="service-content">
+				<h3><i data-lucide="briefcase"></i> Balance nutricional</h3>
+				<p>Diseñamos menús equilibrados que aseguran una alimentación de calidad, adaptada a las necesidades energéticas de cada grupo, promoviendo la salud y el bienestar de los comensales.</p>
 			</div>
-			<div class="service-card">
-				<img src="/service-industrial.jpg" alt="Comedores Industriales" class="service-image" />
-				<div class="service-content">
-					<h3><i data-lucide="factory"></i> Comedores Industriales</h3>
-					<p>Gestión completa de comedores para industrias y grandes organizaciones.</p>
-				</div>
+		</div>
+		<div class="service-card">
+			<img src="/service-industrial.jpg" alt="Comedores Industriales - Gestión completa para industrias y organizaciones" class="service-image" loading="lazy" width="400" height="200" />
+			<div class="service-content">
+				<h3><i data-lucide="factory"></i> Comedores Industriales</h3>
+				<p>Gestión completa de comedores para industrias y grandes organizaciones.</p>
 			</div>
-			<div class="service-card">
-				<img src="/service-events.jpg" alt="Eventos Corporativos" class="service-image" />
-				<div class="service-content">
-					<h3><i data-lucide="party-popper"></i> Variedad Gastronómica</h3>
-					<p>Ofrecemos menús con diversidad de sabores y preparaciones, complementados con festivales gastronómicos que celebran nuestra riqueza culinaria.</p>
-				</div>
+		</div>
+		<div class="service-card">
+			<img src="/service-events.jpg" alt="Eventos Corporativos - Variedad gastronómica y festivales culinarios" class="service-image" loading="lazy" width="400" height="200" />
+			<div class="service-content">
+				<h3><i data-lucide="party-popper"></i> Variedad Gastronómica</h3>
+				<p>Ofrecemos menús con diversidad de sabores y preparaciones, complementados con festivales gastronómicos que celebran nuestra riqueza culinaria.</p>
 			</div>
+		</div>
 			</div>
 			</div>
 		</section>
@@ -471,6 +608,7 @@
 			</div>
 			</div>
 		</section>
+		</main>
 
 		<!-- Footer -->
 		<footer>
@@ -497,10 +635,10 @@
 			</div>
 	<div class="footer-section">
 		<h3>Políticas</h3>
-		<a href="/Politica-SST.pdf" target="_blank" class="sst-link">
+		<a href="/Politica-SST.pdf" target="_blank" class="sst-link" title="Descargar Política de Seguridad y Salud en el Trabajo" rel="noopener">
 			<i data-lucide="award"></i> Política de Seguridad y Salud en el Trabajo
 		</a>
-		<a href="/Politica-PHS.pdf" target="_blank" class="sst-link">
+		<a href="/Politica-PHS.pdf" target="_blank" class="sst-link" title="Descargar Política de Prevención y Sanción del Hostigamiento Sexual" rel="noopener">
 			<i data-lucide="sparkles"></i> Política de Prevención y Sanción del Hostigamiento Sexual
 		</a>
 	</div>
